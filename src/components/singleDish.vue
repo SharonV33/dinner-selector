@@ -13,15 +13,23 @@
         <div v-else class="single-dish">
             <section class="title">
                 <p class="dish-title">{{dish.title}}</p>
+                <span v-on:click="hide" class="infoButton">i</span>
+            </section>
+            <section class="hide" id="info">
+                <recipieCard v-bind:singleDish = "dish"/>
             </section>
         </div>
     </div>
 </template>
 
 <script>
+    import recipieCard from "./recipieCard";
 
     export default {
         name: "singleDish",
+        components: {
+            recipieCard
+        },
         props: ["dish"],
         methods: {
             hide() {
